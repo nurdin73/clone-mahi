@@ -1,3 +1,3 @@
 <template>
-  <router-view />
+  <div>asdas</div>
 </template>
