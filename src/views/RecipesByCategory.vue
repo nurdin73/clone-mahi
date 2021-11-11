@@ -1,28 +1,29 @@
 <template>
-  <div v-if="category">
-    <ul class="grid grid-cols-3 gap-4">
-      <li v-for="product in category.post" :key="product.key">
-        <router-link
-          :to="`/recipe/${this.$route.params.category}/${product.slug}`"
-        >
-          <h3>{{ product.title }}</h3>
-          <img
-            v-bind:src="product.thumbnail"
-            alt="{{ product.title }}"
-            class="object-cover"
-          />
-        </router-link>
-      </li>
-    </ul>
-  </div>
-  <div v-else>
-    <p>loading....</p>
+  <div class="container mx-auto">
+    <div v-if="loading">
+      <p>loading....</p>
+    </div>
+    <div v-if="error">
+      {{ error }}
+    </div>
+    <div v-if="category">
+      <ul class="grid grid-cols-3 gap-4">
+        <li v-for="product in category.post" :key="product.key">
+          <Post :post="product" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import Post from "../components/Post.vue";
 
 export default {
+  name: "RecipesByCategory",
+  components: {
+    Post
+  },
   setup() {
     let BASE_URL =
       process.env.VUE_APP_API_URL ||
@@ -31,25 +32,42 @@ export default {
   },
   data() {
     return {
+      loading: false,
       category: null,
-      error: [],
+      error: null,
     };
   },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => vm.fetchRecipeByCategory(to.params.category));
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.category = null;
+    this.fetchRecipeByCategory(to.params.category);
+    next();
+  },
   methods: {
-    fetchRecipeByCategory() {
+    fetchRecipeByCategory(param) {
+      this.category = this.error = null;
+      this.loading = true;
       axios
-        .get(`${this.BASE_URL}/category/recipe/${this.$route.params.category}`)
+        .get(`${this.BASE_URL}/category/recipe/${param}`)
         .then((res) => res.data)
         .then((res) => {
           this.category = res;
+          this.loading = false;
         })
         .catch((err) => {
-          this.error.push(err.message);
+          this.error = err.message;
         });
     },
   },
-  mounted() {
-    this.fetchRecipeByCategory();
-  },
+  // created() {
+  //   this.fetchRecipeByCategory();
+  //   console.log("created");
+  // },
+  // watch: {
+  //   // call again the method if the route changes
+  //   $route: "fetchRecipeByCategory",
+  // },
 };
 </script>

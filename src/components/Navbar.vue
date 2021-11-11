@@ -1,54 +1,93 @@
 /* eslint-disable prettier/prettier */
 <template>
-  <div>
-    <h1 class="font-bold">Categories Recipe</h1>
-    <div v-if="recipeCategories">
-      <ul>
-        <li
-          v-for="recipeCategory in recipeCategories"
-          :key="recipeCategory.key"
-        >
-          <router-link :to="`/recipe/${recipeCategory.key}`">{{
-            recipeCategory.title
-          }}</router-link>
+  <div class="bg-white">
+    <div class="container mx-auto flex items-center justify-between h-16">
+      <router-link class="font-bold text-xl" to="/">Clone MAHI</router-link>
+      <ul class="flex space-x-5 items-center">
+        <li class="group relative">
+          <router-link to="/recipes" class="relative">Resep</router-link>
+          <ul
+            class="
+              hidden
+              group-hover:block
+              absolute
+              bg-white
+              border
+              rounded
+              w-48
+              overflow-hidden
+              right-0
+            "
+          >
+            <li
+              v-for="recipeCategory in recipeCategories"
+              :key="recipeCategory.key"
+            >
+              <router-link
+                :to="`/recipe/${recipeCategory.key}`"
+                class="block px-3 py-2 hover:bg-green-700"
+                >{{ recipeCategory.title }}</router-link
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="group relative">
+          <router-link to="/articles" class="relative">Artikel</router-link>
+          <ul
+            class="
+              hidden
+              group-hover:block
+              absolute
+              bg-white
+              border
+              rounded
+              w-48
+              overflow-hidden
+              right-0
+            "
+          >
+            <li
+              v-for="articleCategory in articleCategories"
+              :key="articleCategory.key"
+            >
+              <router-link
+                :to="`/article/${articleCategory.key}`"
+                class="block px-3 py-2 hover:bg-green-700"
+              >
+                {{ articleCategory.title }}
+              </router-link>
+            </li>
+          </ul>
+        </li>
+        <li class="group relative">
+          <router-link to="/products" class="relative">Produk</router-link>
+          <ul
+            class="
+              hidden
+              group-hover:block
+              absolute
+              bg-white
+              border
+              rounded
+              w-48
+              overflow-hidden
+              right-0
+            "
+          >
+            <li
+              v-for="productCategory in productCategories"
+              :key="productCategory.key"
+            >
+              <router-link
+                :to="`/product/${productCategory.key}`"
+                class="block px-3 py-2 hover:bg-green-700"
+              >
+                {{ productCategory.title }}
+              </router-link>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div>
-    <div v-else>
-      <p>loading recipe category.....</p>
-    </div>
-
-    <h1 class="font-bold">Categories Article</h1>
-    <div v-if="articleCategories">
-      <ul>
-        <li
-          v-for="articleCategory in articleCategories"
-          :key="articleCategory.key"
-        >
-          <router-link :to="`/article/${articleCategory.key}`">
-            {{ articleCategory.title }}
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      <p>loading article category.....</p>
-    </div>
-    <h1 class="font-bold">Categories Product</h1>
-    <div v-if="productCategories">
-      <ul>
-        <li
-          v-for="productCategory in productCategories"
-          :key="productCategory.key"
-        >
-          <router-link :to="`/product/${productCategory.key}`">
-            {{ productCategory.title }}
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      <p>loading product category.....</p>
     </div>
   </div>
 </template>
