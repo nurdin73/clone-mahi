@@ -17,6 +17,7 @@
               w-48
               overflow-hidden
               right-0
+              z-50
             "
           >
             <li
@@ -44,6 +45,7 @@
               w-48
               overflow-hidden
               right-0
+              z-50
             "
           >
             <li
@@ -72,6 +74,7 @@
               w-48
               overflow-hidden
               right-0
+              z-50
             "
           >
             <li

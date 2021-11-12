@@ -9,12 +9,6 @@
 <script>
 import axios from "axios";
 export default {
-  setup() {
-    let BASE_URL =
-      process.env.VUE_APP_API_URL ||
-      "https://scrapping-mahi.herokuapp.com/api/v1";
-    return { BASE_URL };
-  },
   data() {
     return {
       detail: null,
@@ -24,7 +18,7 @@ export default {
   methods: {
     fetchDetailRecipe() {
       axios
-        .get(`${this.BASE_URL}/recipe/${this.$route.params.key}`)
+        .get(`${this.$store.state.BASE_URL}/recipe/${this.$route.params.key}`)
         .then((res) => res.data)
         .then((res) => {
           this.detail = res;

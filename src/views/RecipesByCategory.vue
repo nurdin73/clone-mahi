@@ -22,13 +22,7 @@ import Post from "../components/Post.vue";
 export default {
   name: "RecipesByCategory",
   components: {
-    Post
-  },
-  setup() {
-    let BASE_URL =
-      process.env.VUE_APP_API_URL ||
-      "https://scrapping-mahi.herokuapp.com/api/v1";
-    return { BASE_URL };
+    Post,
   },
   data() {
     return {
@@ -50,7 +44,7 @@ export default {
       this.category = this.error = null;
       this.loading = true;
       axios
-        .get(`${this.BASE_URL}/category/recipe/${param}`)
+        .get(`${this.$store.state.BASE_URL}/category/recipe/${param}`)
         .then((res) => res.data)
         .then((res) => {
           this.category = res;
