@@ -9,7 +9,7 @@
     <div v-if="category">
       <ul class="grid grid-cols-3 gap-4">
         <li v-for="product in category.post" :key="product.key">
-          <Post :post="product" />
+          <Post :post="product" :type="'recipe'" />
         </li>
       </ul>
     </div>

@@ -9,6 +9,8 @@ import Products from "../views/Products.vue";
 import Product from "../views/Product.vue";
 import ProductByCategory from "../views/ProductByCategory.vue";
 import RecipesByCategory from "../views/RecipesByCategory.vue";
+import Tags from "../views/Tags.vue";
+import Tag from "../views/Tag.vue";
 
 const routes = [
   {
@@ -45,6 +47,16 @@ const routes = [
     path: "/article/:category/:key",
     name: "Article",
     component: Article,
+  },
+  {
+    path: "/tags",
+    name: "Tags",
+    component: Tags,
+  },
+  {
+    path: "/tag/:key",
+    name: "Tag",
+    component: Tag,
   },
   {
     path: "/products",

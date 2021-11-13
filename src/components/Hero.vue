@@ -61,7 +61,11 @@
           </div>
         </div>
         <div class="grid grid-cols-4 gap-4 w-full">
-          <div class="relative h-28" v-for="feature in featured" :key="feature.slug">
+          <div
+            class="relative h-28"
+            v-for="feature in featured"
+            :key="feature.slug"
+          >
             <div class="h-full relative overflow-hidden rounded">
               <div class="h-full relative p-0 m-0">
                 <div class="absolute top-0 bottom-0 left-0 right-0 w-full">
@@ -89,8 +93,36 @@
                       loading="lazy"
                     />
                   </div>
-                  <div class="absolute p-2 bottom-0 left-0 right-0 flex justify-start items-start flex-col bg-gradient-to-t from-gray-900 to-transparent">
-                    <router-link :to="`/recipe/resep/${feature.slug}`" class="md:text-sm w-full overflow-hidden truncate block cursor-pointer hover:underline text-gray-200 font-bold">
+                  <div
+                    class="
+                      absolute
+                      p-2
+                      bottom-0
+                      left-0
+                      right-0
+                      flex
+                      justify-start
+                      items-start
+                      flex-col
+                      bg-gradient-to-t
+                      from-gray-900
+                      to-transparent
+                    "
+                  >
+                    <router-link
+                      :to="`/recipe/resep/${feature.slug}`"
+                      class="
+                        md:text-sm
+                        w-full
+                        overflow-hidden
+                        truncate
+                        block
+                        cursor-pointer
+                        hover:underline
+                        text-gray-200
+                        font-bold
+                      "
+                    >
                       {{ feature.title }}
                     </router-link>
                   </div>
@@ -101,7 +133,7 @@
         </div>
       </div>
       <div class="col-span-4 flex justify-center items-center">
-        <img src="../assets/recipe.png" class="h-80">
+        <img src="../assets/recipe.png" class="h-80" />
       </div>
     </div>
   </div>
