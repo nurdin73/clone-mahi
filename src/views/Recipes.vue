@@ -3,7 +3,7 @@
     <div v-if="loading">Loading...</div>
     <div v-if="recipes">
       <div class="grid grid-cols-3 gap-4">
-        <div v-for="recipe in recipes" :key="recipe.key">
+        <div v-for="recipe in recipes.data" :key="recipe.key">
           <Post :post="recipe" :type="'recipe'" />
         </div>
       </div>
@@ -28,7 +28,7 @@ export default {
   methods: {
     fetchRecipes() {
       this.loading = true
-      axios.get(`${this.$store.state.BASE_URL}/recipe/latest`)
+      axios.get(`${this.$store.state.BASE_URL}/recipes`)
       .then(res => res.data)
       .then(res => {
         this.recipes = res

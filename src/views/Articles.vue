@@ -4,7 +4,7 @@
     <div v-if="error">{{ error }}</div>
     <div v-if="articles">
       <div class="grid grid-cols-3 gap-4">
-        <div v-for="article in articles" :key="article.key">
+        <div v-for="article in articles.data" :key="article.key">
           <Post :post="article" :type="'article'" />
         </div>
       </div>
@@ -30,7 +30,7 @@ export default {
     fetchArticles() {
       this.loading = true
       axios
-        .get(`${this.$store.state.BASE_URL}/article/latest`)
+        .get(`${this.$store.state.BASE_URL}/articles`)
         .then(res => res.data)
         .then(res => {
           this.articles = res
