@@ -1,10 +1,24 @@
 <template>
-  <div>asd</div>
+  <div class="container mx-auto">
+    <div v-if="loading">Loading...</div>
+    <div v-if="error">{{ error }}</div>
+    <div v-if="articles">
+      <div class="grid grid-cols-3 gap-4">
+        <div v-for="article in articles" :key="article.key">
+          <Post :post="article" :type="'article'" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Post from "../components/Post.vue";
 export default {
+  components: {
+    Post
+  },
   data() {
     return {
       articles: null,
