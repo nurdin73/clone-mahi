@@ -6,7 +6,7 @@
           <div class="relative overflow-hidden">
             <img
               v-bind:src="src"
-              alt="{{ alt }}"
+              :alt="alt"
               class="w-full h-full object-cover rounded-md lg:rounded-none"
               loading="lazy"
             />

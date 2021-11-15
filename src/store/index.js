@@ -6,6 +6,7 @@ const store = createStore({
       BASE_URL:
         process.env.VUE_APP_API_URL ||
         "https://scrapping-mahi.herokuapp.com/api/v1",
+      categories: null,
     };
   },
   mutations: {},

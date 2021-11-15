@@ -1,8 +1,52 @@
 <template>
   <div class="container mx-auto">
-    <div v-if="loading">
-      <p>loading....</p>
-    </div>
+    <ul v-if="loading" class="grid grid-cols-3 gap-4">
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+      <li class="animate-pulse flex space-x-4">
+        <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
+          <div class="bg-gray-300"></div>
+        </div>
+      </li>
+    </ul>
     <div v-if="error">
       {{ error }}
     </div>

@@ -32,6 +32,16 @@
           <Image :src="detail.thumbnail.src" :alt="detail.thumbnail.alt" :height="'96'" />
           <p class="text-gray-600 text-sm">{{ detail.thumbnail.alt }}</p>
           <div class="mt-4 text-gray-700 flex flex-col space-y-6 text-md text-justify" v-html="detail.description"></div>
+          <h2 class="text-2xl font-bold text-gray-600 my-3">Bahan Tambahan</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div v-for="needItem in detail.need_items" :key="needItem.name" class="flex items-start space-x-2 border p-2 rounded">
+              <img v-bind:src="needItem.image" alt="{{ needItem.name }}" class="w-32 h-32">
+              <div class="flex flex-col space-y-1">
+                <span class="text-sm text-gray-600">Yang diperlukan</span>
+                <span class="text-lg font-bold text-gray-600">{{ needItem.name }}</span>
+              </div>
+            </div>
+          </div>
           <h2 class="text-4xl font-bold text-green-600 my-3">Bahan</h2>
           <ul class="grid grid-cols-2 gap-4">
             <li v-for="ingredient in detail.ingredients" :key="ingredient.ingredient" class="flex items-center space-x-2">
@@ -48,8 +58,8 @@
           </ul>
           <h2 class="text-4xl font-bold text-green-600 my-3">Tags</h2>
           <ul class="flex flex-wrap justify-start items-center gap-2">
-            <li v-for="tag in detail.tags" :key="tag.key" class="bg-green-300 flex-auto text-center text-sm text-green-900 py-1 rounded px-4">
-              <router-link :to="`/tag/${tag.key}`">{{ tag.name }}</router-link>
+            <li v-for="tag in detail.tags" :key="tag.key" >
+              <router-link :to="`/tag/${tag.key}`" class="bg-green-300 text-center text-sm text-green-900 py-1 rounded px-4">{{ tag.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -62,9 +72,10 @@
           Loading...
         </div>
         <div v-if="related">
-          <ul>
+          <h2 class="text-center font-bold p-2 text-2xl mb-5 bg-green-600 text-white">Resep Terkait</h2>
+          <ul class="flex flex-col gap-4">
             <li v-for="relate in related" :key="relate.slug">
-              {{ relate.title }}
+              <SimplePost :post="relate" :type="'recipe'" />
             </li>
           </ul>
         </div>
@@ -78,9 +89,11 @@
 <script>
 import axios from "axios";
 import Image from "../components/Image.vue";
+import SimplePost from "../components/SimplePost.vue";
 export default {
   components: {
     Image,
+    SimplePost
   },
   data() {
     return {
@@ -92,11 +105,24 @@ export default {
       errorRelated: null
     };
   },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.fetchDetailRecipe(to.params.key)
+      vm.fetchRelatedRecipe(to.params.key)
+    });
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.related = null;
+    this.fetchDetailRecipe(to.params.key);
+    this.fetchRelatedRecipe(to.params.key)
+    next();
+  },
   methods: {
-    fetchDetailRecipe() {
+    fetchDetailRecipe(param) {
       this.loading = true
+      this.detail = null;
       axios
-        .get(`${this.$store.state.BASE_URL}/recipe/${this.$route.params.key}`)
+        .get(`${this.$store.state.BASE_URL}/recipe/${param}`)
         .then((res) => res.data)
         .then((res) => {
           this.detail = res;
@@ -108,10 +134,10 @@ export default {
         });
     },
 
-    fetchRelatedRecipe() {
+    fetchRelatedRecipe(param) {
       this.loadingRelated = true
       axios
-        .get(`${this.$store.state.BASE_URL}/recipe/${this.$route.params.key}/related`)
+        .get(`${this.$store.state.BASE_URL}/recipe/${param}/related`)
         .then(res => res.data)
         .then(res => {
           this.related = res
@@ -122,9 +148,8 @@ export default {
         })
     },
   },
-  mounted() {
-    this.fetchDetailRecipe();
-    this.fetchRelatedRecipe()
-  },
+  metaInfo: {
+    title: "asdas"
+  }
 };
 </script>
