@@ -7,11 +7,8 @@
             Cari <span class="text-green-700">Resep</span> Dan Dapatkan <br />
             Hati <span class="text-green-700">Keluarga</span>
           </h1>
-          <form
-            action="#"
+          <div
             class="mt-10 relative"
-            autocomplete="off"
-            @submit="searchPost"
           >
             <input
               type="text"
@@ -31,10 +28,11 @@
                 top-0
                 right-0
               "
+              @click="searchPost"
             >
               Cari
             </button>
-          </form>
+          </div>
         </div>
         <div v-if="loading" class="grid grid-cols-4 gap-4 w-full">
           <div v-if="loading" class="rounded">
@@ -161,8 +159,7 @@ export default {
   },
 
   methods: {
-    searchPost(e) {
-      e.preventDefault();
+    searchPost() {
       router.push({ name: "Search", params: { query: this.search } });
     },
   },
