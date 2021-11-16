@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-5">
+  <div class="container p-2 tablet:mx-auto mt-5">
     <div class="grid grid-cols-12 gap-4">
       <div class="table:col-span-8 col-span-12 overflow-hidden">
         <div v-if="loading">

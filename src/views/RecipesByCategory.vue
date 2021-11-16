@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container p-2 tablet:mx-auto">
     <ul
       v-if="loading"
       class="

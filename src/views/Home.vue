@@ -1,10 +1,10 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto mb-10">
+    <div class="container p-2 tablet:mx-auto mb-10">
       <Hero :featured="featured" :loading="loadingFeatured" />
     </div>
     <TitleTag :tt="'Kategori'" />
-    <div class="container mx-auto my-7">
+    <div class="container p-2 tablet:mx-auto my-7">
       <ul
         v-if="loadingCategories"
         class="grid grid-cols-2 tablet:grid-cols-4 laptop:grid-cols-9 gap-4"
@@ -76,7 +76,7 @@
       </ul>
     </div>
     <TitleTag :tt="'Postingan Terbaru'" />
-    <div class="container mx-auto my-7">
+    <div class="container p-2 tablet:mx-auto my-7">
       <ul
         v-if="loadingArticles"
         class="

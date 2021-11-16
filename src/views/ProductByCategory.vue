@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container p-2 tablet:mx-auto">
     <div v-if="loading">Loading...</div>
     <div v-if="category" class="grid grid-cols-4 gap-4">
       <div v-for="product in category.data" :key="product.id">

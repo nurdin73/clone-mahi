@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container p-2 tablet:mx-auto">
     <div v-if="loading">Loading..</div>
     <div v-if="detail" class="grid grid-cols-3 mb-10">
       <div class="col-span-1 flex justify-center items-center">

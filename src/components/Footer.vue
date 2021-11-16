@@ -1,6 +1,6 @@
 <template>
   <div class="mt-10 bg-green-700">
-    <div class="container mx-auto py-10">
+    <div class="container p-2 tablet:mx-auto py-10">
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 tablet:col-span-4">
           <h3 class="text-gray-200 font-bold text-xl">Tentang</h3>

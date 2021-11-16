@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 <template>
   <div class="bg-white">
-    <div class="container mx-auto flex items-center justify-between h-16">
+    <div class="container p-2 flex items-center justify-between h-16 tablet:mx-auto">
       <router-link class="font-bold text-xl" to="/">Clone MAHI</router-link>
       <ul class="flex space-x-5 items-center">
         <li class="group relative">

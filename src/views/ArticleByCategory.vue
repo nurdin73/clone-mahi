@@ -21,7 +21,7 @@
         <p class="text-white">{{ detail.desc }}</p>
       </div>
     </div>
-    <div class="container mx-auto">
+    <div class="container p-2 tablet:mx-auto">
       <div class="grid grid-cols-12 tablet:gap-10 mt-10">
         <div class="col-span-12 tablet:col-span-8">
           <div class="grid grid-cols-1 tablet:col-span-2 gap-4">
