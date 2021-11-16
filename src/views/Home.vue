@@ -7,7 +7,7 @@
     <div class="container mx-auto my-7">
       <ul
         v-if="loadingCategories"
-        class="grid grid-cols-2 tablet:col-span-9 gap-4"
+        class="grid grid-cols-2 tablet:grid-cols-4 laptop:grid-cols-9 gap-4"
       >
         <li class="animate-pulse flex space-x-4">
           <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-12">
@@ -55,7 +55,7 @@
           </div>
         </li>
       </ul>
-      <ul class="grid grid-cols-2 tablet:col-span-9 gap-4">
+      <ul class="grid grid-cols-2 tablet:grid-cols-4 laptop:grid-cols-9 gap-4">
         <li v-for="category in categories" :key="category.key">
           <router-link
             :to="`/recipe/${category.key}`"
