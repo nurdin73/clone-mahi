@@ -1,7 +1,17 @@
 <template>
   <div class="container p-2 tablet:mx-auto">
     <div v-if="loading">Loading...</div>
-    <div v-if="category" class="grid grid-cols-4 gap-4">
+    <div
+      v-if="category"
+      class="
+        grid
+        desktop:grid-cols-4
+        laptop:grid-cols-3
+        tablet:grid-cols-2
+        grid-cols-2
+        gap-4
+      "
+    >
       <div v-for="product in category.data" :key="product.id">
         <Product :product="product" />
       </div>

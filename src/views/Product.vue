@@ -2,14 +2,14 @@
   <div class="container p-2 tablet:mx-auto">
     <div v-if="loading">Loading..</div>
     <div v-if="detail" class="grid grid-cols-3 mb-10">
-      <div class="col-span-1 flex justify-center items-center">
+      <div class="col-span-3 tablet:col-span-1 flex justify-center items-center">
         <img
           v-bind:src="detail.thumbnail"
           :alt="detail.title"
           class="object-cover w-56 h-56"
         />
       </div>
-      <div class="col-span-2">
+      <div class="col-span-3 tablet:col-span-2">
         <h1 class="text-2xl text-gray-700 font-bold">{{ detail.title }}</h1>
         <div v-html="detail.description" class="text-md my-5"></div>
         <a
@@ -28,7 +28,12 @@
       <h2 class="text-3xl font-bold text-center text-gray-800 mb-3">
         Resep Terkait
       </h2>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid
+          desktop:grid-cols-4
+          laptop:grid-cols-3
+          tablet:grid-cols-2
+          grid-cols-1
+          gap-4">
         <div v-for="relate in relates" :key="relate.key">
           <Post :post="relate" :type="'recipe'" />
         </div>

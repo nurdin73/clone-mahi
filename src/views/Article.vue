@@ -44,7 +44,7 @@
         </div>
         <div v-if="error">{{ error }}</div>
       </div>
-      <div class="tablet:col-span-4 col-span-12">
+      <div class="tablet:col-span-4 col-span-12 mt-10 tablet:mt-0">
         <div v-if="loadingRelate">Loading....</div>
         <div v-if="relates">
           <h2
