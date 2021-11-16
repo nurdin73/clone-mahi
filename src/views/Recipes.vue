@@ -14,7 +14,16 @@
       </div>
     </div>
     <div v-if="recipes">
-      <div class="grid grid-cols-3 gap-4">
+      <div
+        class="
+          grid
+          desktop:grid-cols-4
+          laptop:grid-cols-3
+          tablet:grid-cols-2
+          grid-cols-1
+          gap-4
+        "
+      >
         <div v-for="recipe in recipes.data" :key="recipe.key">
           <Post :post="recipe" :type="'recipe'" />
         </div>

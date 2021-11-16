@@ -15,7 +15,16 @@
     </div>
     <div v-if="error">{{ error }}</div>
     <div v-if="articles">
-      <div class="grid grid-cols-3 gap-4">
+      <div
+        class="
+          grid
+          desktop:grid-cols-4
+          laptop:grid-cols-3
+          tablet:grid-cols-2
+          grid-cols-1
+          gap-4
+        "
+      >
         <div v-for="article in articles.data" :key="article.key">
           <Post :post="article" :type="'article'" />
         </div>
