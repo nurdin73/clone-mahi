@@ -7,9 +7,7 @@
             Cari <span class="text-green-700">Resep</span> Dan Dapatkan <br />
             Hati <span class="text-green-700">Keluarga</span>
           </h1>
-          <div
-            class="mt-10 relative"
-          >
+          <div class="mt-10 relative">
             <input
               type="text"
               class="bg-gray-200 outline-none shadow-sm rounded p-3 w-full"
