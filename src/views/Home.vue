@@ -107,6 +107,7 @@ import axios from "axios";
 import Hero from "../components/Hero.vue";
 import TitleTag from "../components/TitleTag.vue";
 import Post from "../components/Post.vue";
+
 export default {
   components: {
     Hero,

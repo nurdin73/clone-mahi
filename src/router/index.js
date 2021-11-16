@@ -10,12 +10,19 @@ import Product from "../views/Product.vue";
 import ProductByCategory from "../views/ProductByCategory.vue";
 import RecipesByCategory from "../views/RecipesByCategory.vue";
 import Tag from "../views/Tag.vue";
+import Search from "../views/Search.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/search/:query",
+    name: "Search",
+    component: Search,
+    props: true,
   },
   {
     path: "/recipes",

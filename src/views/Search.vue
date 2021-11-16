@@ -13,39 +13,50 @@
         </div>
       </div>
     </div>
-    <div v-if="recipes">
+    <div v-if="searchs">
       <div class="grid grid-cols-3 gap-4">
-        <div v-for="recipe in recipes.data" :key="recipe.key">
-          <Post :post="recipe" :type="'recipe'" />
+        <div v-for="article in searchs.data" :key="article.key">
+          <Post :post="article" :type="'article'" />
         </div>
       </div>
     </div>
     <div v-if="error">{{ error }}</div>
   </div>
 </template>
+
 <script>
-import axios from "axios";
 import Post from "../components/Post.vue";
+import axios from "axios";
 export default {
+  name: "Search",
   components: {
     Post,
   },
+  props: ["query"],
   data() {
     return {
       loading: false,
-      recipes: null,
+      searchs: null,
       error: null,
       loader: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     };
   },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => vm.fetchSearch(to.params.query));
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.searchs = null;
+    this.fetchSearch(to.params.query);
+    next();
+  },
   methods: {
-    fetchRecipes() {
+    fetchSearch(key) {
       this.loading = true;
       axios
-        .get(`${this.$store.state.BASE_URL}/recipes`)
+        .get(`${this.$store.state.BASE_URL}/search/${key}`)
         .then((res) => res.data)
         .then((res) => {
-          this.recipes = res;
+          this.searchs = res;
           this.loading = false;
         })
         .catch((err) => {
@@ -53,9 +64,6 @@ export default {
           this.loading = false;
         });
     },
-  },
-  created() {
-    this.fetchRecipes();
   },
 };
 </script>

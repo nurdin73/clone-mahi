@@ -7,12 +7,18 @@
             Cari <span class="text-green-700">Resep</span> Dan Dapatkan <br />
             Hati <span class="text-green-700">Keluarga</span>
           </h1>
-          <form action="#" class="mt-10 relative" autocomplete="off">
+          <form
+            action="#"
+            class="mt-10 relative"
+            autocomplete="off"
+            @submit="searchPost"
+          >
             <input
               type="text"
               class="bg-gray-200 outline-none shadow-sm rounded p-3 w-full"
               name="search"
               id="search"
+              v-model="search"
             />
             <button
               class="
@@ -140,11 +146,25 @@
 </template>
 
 <script>
+import router from "../router";
 export default {
   name: "Hero",
   props: {
     featured: null,
     loading: null,
+  },
+
+  data() {
+    return {
+      search: null,
+    };
+  },
+
+  methods: {
+    searchPost(e) {
+      e.preventDefault();
+      router.push({ name: "Search", params: { query: this.search } });
+    },
   },
 };
 </script>
