@@ -14,19 +14,7 @@
           </p>
           <div class="flex space-x-4 items-center justify-center">
             <div
-              class="
-                flex
-                items-center
-                space-x-1
-                bg-green-100
-                py-2
-                px-5
-                rounded
-                bg-green-100
-                py-2
-                px-5
-                rounded
-              "
+              class="flex items-center space-x-1 bg-green-100 rounded py-2 px-5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
