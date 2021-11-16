@@ -93,7 +93,10 @@
       </ul>
       <ul class="grid grid-cols-3 gap-4">
         <li v-for="article in articles" :key="article.slug">
-          <Post :post="article" :type="article.category == 'resep' ? 'recipe' : 'article'" />
+          <Post
+            :post="article"
+            :type="article.category == 'resep' ? 'recipe' : 'article'"
+          />
         </li>
       </ul>
     </div>
@@ -103,7 +106,7 @@
 import axios from "axios";
 import Hero from "../components/Hero.vue";
 import TitleTag from "../components/TitleTag.vue";
-import Post from "../components/Post.vue"
+import Post from "../components/Post.vue";
 export default {
   components: {
     Hero,

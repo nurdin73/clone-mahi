@@ -13,37 +13,37 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 import Post from "../components/Post.vue";
 export default {
   components: {
-    Post
+    Post,
   },
   data() {
     return {
       articles: null,
       loading: false,
-      error: null
-    }
+      error: null,
+    };
   },
   methods: {
     fetchArticles() {
-      this.loading = true
+      this.loading = true;
       axios
         .get(`${this.$store.state.BASE_URL}/articles`)
-        .then(res => res.data)
-        .then(res => {
-          this.articles = res
-          this.loading = false
+        .then((res) => res.data)
+        .then((res) => {
+          this.articles = res;
+          this.loading = false;
         })
-        .catch(err => {
-          this.error = err.message
-          this.loading = false
-        })
-    }
+        .catch((err) => {
+          this.error = err.message;
+          this.loading = false;
+        });
+    },
   },
   created() {
-    this.fetchArticles()
-  }
-}
+    this.fetchArticles();
+  },
+};
 </script>

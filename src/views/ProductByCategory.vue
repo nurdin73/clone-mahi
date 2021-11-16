@@ -10,44 +10,44 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
-import Product from "../components/Product.vue"
+import axios from "axios";
+import Product from "../components/Product.vue";
 export default {
   components: {
-    Product
+    Product,
   },
   data() {
     return {
       category: null,
       loading: false,
-      error: null
-    }
+      error: null,
+    };
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {
-      vm.fetchProductCategory(to.params.category)
+      vm.fetchProductCategory(to.params.category);
     });
   },
   beforeRouteUpdate(to, from, next) {
     this.category = null;
-    this.fetchProductCategory(to.params.category)
+    this.fetchProductCategory(to.params.category);
     next();
   },
   methods: {
     fetchProductCategory(category) {
-      this.loading = true
+      this.loading = true;
       axios
         .get(`${this.$store.state.BASE_URL}/products/${category}`)
-        .then(res => res.data)
-        .then(res => {
-          this.category = res
-          this.loading = false
+        .then((res) => res.data)
+        .then((res) => {
+          this.category = res;
+          this.loading = false;
         })
-        .catch(err => {
-          this.error = err.message
-          this.loading = false
-        })
-    }
-  }
-}
+        .catch((err) => {
+          this.error = err.message;
+          this.loading = false;
+        });
+    },
+  },
+};
 </script>

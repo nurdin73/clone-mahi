@@ -12,35 +12,37 @@
   </div>
 </template>
 <script>
-import axios from "axios"
+import axios from "axios";
 import Post from "../components/Post.vue";
 export default {
   components: {
-    Post
+    Post,
   },
   data() {
     return {
       loading: false,
       recipes: null,
-      error: null
-    }
+      error: null,
+    };
   },
   methods: {
     fetchRecipes() {
-      this.loading = true
-      axios.get(`${this.$store.state.BASE_URL}/recipes`)
-      .then(res => res.data)
-      .then(res => {
-        this.recipes = res
-        this.loading = false
-      }).catch(err => {
-        this.error = err.message
-        this.loading = false
-      })
-    }
+      this.loading = true;
+      axios
+        .get(`${this.$store.state.BASE_URL}/recipes`)
+        .then((res) => res.data)
+        .then((res) => {
+          this.recipes = res;
+          this.loading = false;
+        })
+        .catch((err) => {
+          this.error = err.message;
+          this.loading = false;
+        });
+    },
   },
   created() {
-    this.fetchRecipes()
-  } 
-}
+    this.fetchRecipes();
+  },
+};
 </script>

@@ -11,38 +11,38 @@
 </template>
 
 <script>
-import axios from 'axios'
-import Product from "../components/Product.vue"
+import axios from "axios";
+import Product from "../components/Product.vue";
 export default {
   name: "Products",
   components: {
-    Product
+    Product,
   },
   data() {
     return {
       loading: false,
       products: null,
-      error: null
-    }
+      error: null,
+    };
   },
   methods: {
     fetchProducts(page = 1) {
-      this.loading = true
+      this.loading = true;
       axios
         .get(`${this.$store.state.BASE_URL}/products?page=${page}`)
-        .then(res => res.data)
-        .then(res => {
-          this.products = res
-          this.loading = false
+        .then((res) => res.data)
+        .then((res) => {
+          this.products = res;
+          this.loading = false;
         })
-        .catch(err => {
-          this.error = err.message
-          this.loading = false
-        })
-    }
+        .catch((err) => {
+          this.error = err.message;
+          this.loading = false;
+        });
+    },
   },
   created() {
-    this.fetchProducts()
-  }
-}
+    this.fetchProducts();
+  },
+};
 </script>
