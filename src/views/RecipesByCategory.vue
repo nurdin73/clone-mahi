@@ -1,6 +1,16 @@
 <template>
   <div class="container mx-auto">
-    <ul v-if="loading" class="grid grid-cols-3 gap-4">
+    <ul
+      v-if="loading"
+      class="
+        grid
+        desktop:grid-cols-4
+        laptop:grid-cols-3
+        tablet:grid-cols-2
+        grid-cols-1
+        gap-4
+      "
+    >
       <li class="animate-pulse flex space-x-4">
         <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-56">
           <div class="bg-gray-300"></div>

@@ -1,7 +1,16 @@
 <template>
   <div class="container mx-auto">
     <div v-if="loading">
-      <div class="grid grid-cols-3 gap-4">
+      <div
+        class="
+          grid
+          desktop:grid-cols-4
+          laptop:grid-cols-3
+          tablet:grid-cols-2
+          grid-cols-1
+          gap-4
+        "
+      >
         <div
           class="animate-pulse flex space-x-4"
           v-for="load in loader"

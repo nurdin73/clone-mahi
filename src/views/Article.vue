@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-cols-12 gap-10 mt-10">
-      <div class="col-span-8">
+    <div class="grid grid-cols-12 tablet:gap-10 mt-10">
+      <div class="table:col-span-8 col-span-12 overflow-hidden">
         <div v-if="loading">Loading....</div>
         <div v-if="detail">
           <h1 class="text-4xl font-bold text-center text-gray-700">
@@ -44,7 +44,7 @@
         </div>
         <div v-if="error">{{ error }}</div>
       </div>
-      <div class="col-span-4">
+      <div class="tablet:col-span-4 col-span-12">
         <div v-if="loadingRelate">Loading....</div>
         <div v-if="relates">
           <h2

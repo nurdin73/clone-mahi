@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto mt-5">
     <div class="grid grid-cols-12 gap-4">
-      <div class="col-span-8">
+      <div class="table:col-span-8 col-span-12 overflow-hidden">
         <div v-if="loading">
           <p>Loading....</p>
         </div>
@@ -101,7 +101,7 @@
             v-html="detail.description"
           ></div>
           <h2 class="text-2xl font-bold text-gray-600 my-3">Bahan Tambahan</h2>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid tablet:grid-cols-2 grid-cols-1 gap-4">
             <div
               v-for="needItem in detail.need_items"
               :key="needItem.name"
@@ -121,7 +121,7 @@
             </div>
           </div>
           <h2 class="text-4xl font-bold text-green-600 my-3">Bahan</h2>
-          <ul class="grid grid-cols-2 gap-4">
+          <ul class="grid tablet:grid-cols-2 grid-cols-1 gap-4">
             <li
               v-for="ingredient in detail.ingredients"
               :key="ingredient.ingredient"
@@ -167,7 +167,7 @@
           {{ error }}
         </div>
       </div>
-      <div class="col-span-4">
+      <div class="tablet:col-span-4 col-span-12">
         <div v-if="loadingRelated">Loading...</div>
         <div v-if="related">
           <h2
