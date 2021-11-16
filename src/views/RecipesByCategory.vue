@@ -51,7 +51,16 @@
       {{ error }}
     </div>
     <div v-if="category">
-      <ul class="grid grid-cols-3 gap-4">
+      <ul
+        class="
+          grid
+          desktop:grid-cols-4
+          laptop:grid-cols-3
+          tablet:grid-cols-2
+          grid-cols-1
+          gap-4
+        "
+      >
         <li v-for="product in category.post" :key="product.key">
           <Post :post="product" :type="'recipe'" />
         </li>

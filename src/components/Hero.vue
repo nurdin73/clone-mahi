@@ -1,7 +1,16 @@
 <template>
   <div>
     <div class="grid grid-cols-12 gap-4">
-      <div class="items-start flex-col justify-center flex col-span-8">
+      <div
+        class="
+          items-start
+          flex-col
+          justify-center
+          flex
+          col-span-12
+          tablet:col-span-8
+        "
+      >
         <div class="mb-20 mt-20">
           <h1 class="text-5xl font-bold">
             Cari <span class="text-green-700">Resep</span> Dan Dapatkan <br />
@@ -32,7 +41,7 @@
             </button>
           </div>
         </div>
-        <div v-if="loading" class="grid grid-cols-4 gap-4 w-full">
+        <div v-if="loading" class="tablet:grid hidden grid-cols-4 gap-4 w-full">
           <div v-if="loading" class="rounded">
             <div class="animate-pulse flex space-x-4">
               <div class="flex-1 space-y-4 py-1 bg-gray-300 rounded h-28">
@@ -62,7 +71,7 @@
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-4 gap-4 w-full">
+        <div class="tablet:grid grid-cols-4 hidden gap-4 w-full">
           <div
             class="relative h-28"
             v-for="feature in featured"
@@ -134,7 +143,7 @@
           </div>
         </div>
       </div>
-      <div class="col-span-4 flex justify-center items-center">
+      <div class="col-span-4 hidden tablet:flex justify-center items-center">
         <img src="../assets/recipe.png" class="h-80" />
       </div>
     </div>

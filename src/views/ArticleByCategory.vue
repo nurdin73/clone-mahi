@@ -22,15 +22,15 @@
       </div>
     </div>
     <div class="container mx-auto">
-      <div class="grid grid-cols-12 gap-10 mt-10">
-        <div class="col-span-8">
-          <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-12 tablet:gap-10 mt-10">
+        <div class="col-span-12 tablet:col-span-8">
+          <div class="grid grid-cols-1 tablet:col-span-2 gap-4">
             <div v-for="post in detail.post" :key="post.key">
               <Post :post="post" :type="'article'" />
             </div>
           </div>
         </div>
-        <div class="col-span-4">
+        <div class="tablet:col-span-4 col-span-12 mt-10 tablet:mt-0">
           <div v-if="loadingNewArticle">Loading....</div>
           <div v-if="newArticles">
             <h2

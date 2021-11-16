@@ -2,7 +2,7 @@
   <div class="mt-10 bg-green-700">
     <div class="container mx-auto py-10">
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-6">
+        <div class="col-span-12 tablet:col-span-4">
           <h3 class="text-gray-200 font-bold text-xl">Tentang</h3>
           <p class="text-gray-200 text-sm mt-3">
             Aplikasi ini adalah clonningan dari website
@@ -17,7 +17,7 @@
             officialnya yah
           </p>
         </div>
-        <div class="col-span-2">
+        <div class="col-span-12 tablet:col-span-2">
           <h3 class="text-gray-200 font-bold text-xl">Tautan</h3>
           <ul class="flex flex-col space-y-2 mt-3">
             <li>
@@ -37,7 +37,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-span-4">
+        <div class="col-span-12 tablet:col-span-6">
           <h3 class="text-gray-200 font-bold text-xl">Kontak Saya</h3>
           <ul class="flex flex-col space-y-2 mt-3">
             <li class="flex space-x-1 items-center text-white">
